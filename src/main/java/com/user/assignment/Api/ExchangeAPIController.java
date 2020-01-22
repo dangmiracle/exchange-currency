@@ -18,7 +18,7 @@ public class ExchangeAPIController {
 
 
     @RequestMapping(value = "/exchange/rate", method = RequestMethod.GET)
-    public ResponseEntity<BigDecimal> getExchange(@RequestParam(required = true) String from, @RequestParam(required = true) String to){
+    public ResponseEntity<BigDecimal> getExchangeRate(@RequestParam(required = true) String from, @RequestParam(required = true) String to){
         try {
             BigDecimal result = exchangeService.getExchangeRate(from, to);
             return ResponseEntity.ok(result);
