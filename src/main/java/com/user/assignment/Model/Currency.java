@@ -1,5 +1,7 @@
 package com.user.assignment.Model;
 
+import java.math.BigDecimal;
+
 public abstract class Currency {
     private long id;
     private String name;
@@ -27,6 +29,15 @@ public abstract class Currency {
 
     public void setTradingBehavior(TradingCurrencyBehavior tradingBehavior) {
         this.tradingBehavior = tradingBehavior;
+    }
+
+    public BigDecimal getExchangeRate(Currency toCurrency) {
+        return getTradingBehavior().getExchangeRate(this, toCurrency);
+    }
+
+    public BigDecimal getExchangeAmount(Currency toCurrency, BigDecimal amount) {
+
+        return getTradingBehavior().getExchangeAmount(this, toCurrency, amount);
     }
 
 }
